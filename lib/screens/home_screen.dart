@@ -137,6 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           movies!.result.sort((a, b) {
                             return b.voting.compareTo(a.voting);
                           });
+                          DateTime date = DateTime.fromMillisecondsSinceEpoch(
+                              int.parse(movies!.result[index].releasedDate
+                                  .toString()));
                           return Column(
                             children: [
                               Row(
@@ -204,6 +207,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                           child: Text(
                                               "Starring : ${movies!.result[index].stars.toString().replaceAll('[', '').replaceAll(']', "")}",
                                               overflow: TextOverflow.ellipsis),
+                                        ),
+                                        SizedBox(
+                                          width: 200,
+                                          child: Text(
+                                              "Mins | ${movies!.result[index].language} |${date.day} ${date.month}"),
                                         )
                                       ],
                                     ),
@@ -217,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: double.infinity,
                                   child: ElevatedButton(
                                       onPressed: () {},
-                                      child: const Text("Watch Later")),
+                                      child: const Text("Watch Trailer")),
                                 ),
                               )
                             ],
