@@ -83,6 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           CustomTextField(
                               hidde: false,
                               icondata: Icons.person,
+                              type: TextInputType.text,
                               controler: nameController,
                               labeltext: 'Name',
                               hintText: "Enter Your Name",
@@ -95,6 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           CustomTextField(
                               hidde: false,
                               icondata: Icons.email,
+                              type: TextInputType.text,
                               controler: emailController,
                               labeltext: 'Email',
                               hintText: "Enter Your Email",
@@ -110,6 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           CustomTextField(
                               hidde: false,
                               icondata: Icons.phone,
+                              type: TextInputType.phone,
                               controler: phoneController,
                               labeltext: 'Phone',
                               hintText: "Enter Your Hone Number",
@@ -172,6 +175,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               hidde: true,
                               icondata: Icons.key,
                               controler: passController,
+                              type: TextInputType.text,
                               labeltext: 'Password',
                               hintText: "Enter Your Password",
                               validator: (value) {
@@ -187,6 +191,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               hidde: true,
                               icondata: Icons.key,
                               controler: confirmController,
+                              type: TextInputType.text,
                               labeltext: 'Re-Enter Passwor',
                               hintText: "Enter Your Password Again",
                               validator: (value) {

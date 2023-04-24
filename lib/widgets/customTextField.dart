@@ -6,6 +6,7 @@ class CustomTextField extends StatefulWidget {
   TextEditingController controler;
   IconData icondata;
   bool hidde;
+  TextInputType type;
   final String? Function(String?)? validator;
   CustomTextField(
       {required this.controler,
@@ -14,6 +15,7 @@ class CustomTextField extends StatefulWidget {
       required this.validator,
       required this.icondata,
       required this.hidde,
+      required this.type,
       super.key});
 
   @override
@@ -28,6 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextFormField(
         controller: widget.controler,
         obscureText: widget.hidde,
+        keyboardType: widget.type,
         decoration: InputDecoration(
           prefixIcon: Icon(widget.icondata),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),

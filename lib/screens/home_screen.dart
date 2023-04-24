@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greekassignment/api_call.dart';
 import 'package:greekassignment/models/move_model.dart';
 import 'package:greekassignment/screens/sign_in_screen.dart';
+import 'package:greekassignment/widgets/movieite.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -140,96 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           DateTime date = DateTime.fromMillisecondsSinceEpoch(
                               int.parse(movies!.result[index].releasedDate
                                   .toString()));
-                          return Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      const Icon(
-                                        Icons.arrow_drop_up,
-                                        size: 45,
-                                      ),
-                                      Text(movies!.result[index].voting
-                                          .toString()),
-                                      const Icon(
-                                        Icons.arrow_drop_down_sharp,
-                                        size: 45,
-                                      ),
-                                      const Text("Votes")
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.25,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.26,
-                                    child: Image.network(movies!
-                                        .result[index].poster
-                                        .toString()),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          width: 200,
-                                          child: Text(
-                                            movies!.result[index].title,
-                                            style: const TextStyle(
-                                                fontFamily: 'Gideon Roman'),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 200,
-                                          child: Text(
-                                              "Genre : ${movies!.result[index].genre.toString()}",
-                                              overflow: TextOverflow.ellipsis),
-                                        ),
-                                        SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.5,
-                                          child: Text(
-                                              "Director : ${movies!.result[index].director[0]}",
-                                              overflow: TextOverflow.ellipsis),
-                                        ),
-                                        SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.55,
-                                          child: Text(
-                                              "Starring : ${movies!.result[index].stars.toString().replaceAll('[', '').replaceAll(']', "")}",
-                                              overflow: TextOverflow.ellipsis),
-                                        ),
-                                        SizedBox(
-                                          width: 200,
-                                          child: Text(
-                                              "Mins | ${movies!.result[index].language} |${date.day} ${date.month}"),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                      onPressed: () {},
-                                      child: const Text("Watch Trailer")),
-                                ),
-                              )
-                            ],
-                          );
+                          return MovieItem(result: movies!.result[index]);
                         }))
               ],
             )

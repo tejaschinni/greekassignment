@@ -60,6 +60,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         CustomTextField(
                             hidde: false,
                             icondata: Icons.email,
+                            type: TextInputType.text,
                             controler: emailController,
                             labeltext: 'Email',
                             hintText: "Enter Your Email",
@@ -76,6 +77,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             hidde: true,
                             icondata: Icons.key,
                             controler: passController,
+                            type: TextInputType.text,
                             labeltext: 'Password',
                             hintText: "Enter Your Password",
                             validator: (value) {
@@ -127,27 +129,6 @@ class _SignInScreenState extends State<SignInScreen> {
                       ],
                     ),
                   )),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                    onPressed: () {},
-                    child: const Text(
-                      "Google Login",
-                      style: TextStyle(color: Colors.black),
-                    )),
-                ElevatedButton(
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                    onPressed: () {},
-                    child: const Text(
-                      "Facebook Login",
-                      style: TextStyle(color: Colors.black),
-                    )),
-              ],
             ),
           ],
         ),
